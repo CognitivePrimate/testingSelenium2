@@ -1,6 +1,7 @@
 require('chromedriver');
 const {Builder, By, Key} = require('selenium-webdriver');
 const assert = require('assert');
+let should = require('chai').should();
 
 
 async function example(){
@@ -19,7 +20,11 @@ async function example(){
         return value;
     });
 
-    assert.strictEqual(todoText, 'Learn Selenium')
+    // assert using node
+    // `assert.strictEqual(todoText, 'Learn Selenium');`
+
+    // assert using chai
+    todoText.should.equal('Learn Selenium');
 
     // close browser ---- COULD ALSO RUN AS 'AFTERALL()' function??
     // await driver.quit();
