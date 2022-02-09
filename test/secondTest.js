@@ -5,6 +5,17 @@ let should = require("chai").should();
 
 // describe block
 describe("add another todo tests", () => {
+
+    // beforeEach(() => {
+    //     // building new driver instance using an external server instead of chromedriver (from lambdatest)
+    //     // don't use yet
+    //     driver = new Builder().usingServer().withCapabilities().build();
+    // })
+
+    afterEach(async () => {
+        await driver.quit();
+    })
+
   // it block
   it("successfully adds another todo to the application", async () => {
     // launch browser
@@ -30,8 +41,7 @@ describe("add another todo tests", () => {
     // assert using chai
     todoText.should.equal("Learn Selenium");
 
-    // close browser ---- COULD ALSO RUN AS 'AFTERALL()' function??
-    await driver.quit();
+    
   });
 
   it("successfully adds a THIRD todo to the application", async () => {
@@ -58,8 +68,6 @@ describe("add another todo tests", () => {
     // assert using chai
     todoText.should.equal("Learn your job");
 
-    // close browser ---- COULD ALSO RUN AS 'AFTERALL()' function??
-    // await driver.quit();
   });
 
   
